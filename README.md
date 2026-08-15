@@ -2,80 +2,96 @@
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>🎉 عيد ميلاد حبيبتي 🎉</title>
     <style>
+        /* إعادة تعيين كامل */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        body {
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
             background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            min-height: 100vh;
+            font-family: 'Arial', cursive, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Arial', cursive, sans-serif;
-            overflow: hidden;
-            padding: 20px;
+            touch-action: none;
         }
+
+        /* البطاقة */
         .card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            border-radius: 50px;
-            padding: 50px 40px;
-            max-width: 600px;
             width: 100%;
+            height: 100vh;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(5px);
             position: relative;
             z-index: 10;
             animation: fadeIn 2s ease;
+            overflow-y: auto;
         }
+
         @keyframes fadeIn {
-            0% { opacity: 0; transform: scale(0.8); }
+            0% { opacity: 0; transform: scale(0.9); }
             100% { opacity: 1; transform: scale(1); }
         }
+
         .emoji-big {
-            font-size: 80px;
+            font-size: 70px;
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             animation: pulse 2s infinite;
         }
+
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.1); }
         }
+
         h1 {
             color: #fff;
-            font-size: 34px;
+            font-size: 28px;
             font-weight: 900;
-            margin-bottom: 10px;
             background: linear-gradient(45deg, #f7971e, #ffd200);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
         }
+
         .subtitle {
             color: #ff6b9d;
-            font-size: 26px;
+            font-size: 22px;
             font-weight: bold;
-            margin: 10px 0 20px;
+            margin: 5px 0 10px;
             text-shadow: 0 0 30px #ff6b9d;
         }
+
         .message {
             color: #e0e0e0;
-            font-size: 20px;
-            line-height: 2;
-            margin: 20px 0 30px;
-            text-align: center;
+            font-size: 18px;
+            line-height: 2.2;
+            max-width: 550px;
+            margin: 10px 0 20px;
             direction: rtl;
+            padding: 0 10px;
         }
+
         .message i {
             color: #ff6b9d;
         }
+
+        /* القلوب المتساقطة */
         .heart-rain {
             position: fixed;
             top: 0;
@@ -84,63 +100,73 @@
             height: 100%;
             pointer-events: none;
             z-index: 999;
+            overflow: hidden;
         }
+
         .heart {
             position: absolute;
-            font-size: 24px;
+            font-size: 22px;
             animation: fall linear infinite;
-            opacity: 0.7;
+            opacity: 0.6;
             user-select: none;
         }
+
         @keyframes fall {
             0% { transform: translateY(-10vh) rotate(0deg) scale(1); opacity: 0.8; }
-            100% { transform: translateY(110vh) rotate(720deg) scale(0.3); opacity: 0; }
+            100% { transform: translateY(110vh) rotate(720deg) scale(0.2); opacity: 0; }
         }
+
         .balloon {
-            font-size: 60px;
+            font-size: 50px;
             display: inline-block;
             animation: float 3s ease-in-out infinite;
         }
+
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-12px); }
         }
+
         .btn-music {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             color: #fff;
             padding: 12px 30px;
             border-radius: 50px;
             font-size: 16px;
             cursor: pointer;
             transition: 0.3s;
-            margin-top: 15px;
+            margin: 10px 0 5px;
+            touch-action: manipulation;
         }
-        .btn-music:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.05);
+
+        .btn-music:active {
+            transform: scale(0.95);
         }
+
         .footer {
             color: #888;
-            font-size: 15px;
-            margin-top: 25px;
-            opacity: 0.6;
+            font-size: 14px;
+            margin-top: 10px;
+            opacity: 0.5;
             direction: rtl;
         }
-        .heart-icon {
-            color: #ff6b9d;
-        }
-        .big-heart {
-            font-size: 100px;
-            animation: pulse 1.5s infinite;
-            display: block;
-            margin: 10px auto;
-        }
+
+        /* تنسيق للجوال فقط */
         @media (max-width: 480px) {
-            .card { padding: 30px 20px; }
-            h1 { font-size: 26px; }
-            .message { font-size: 17px; }
-            .subtitle { font-size: 20px; }
+            h1 { font-size: 22px; }
+            .subtitle { font-size: 18px; }
+            .message { font-size: 16px; line-height: 2; padding: 0 5px; }
+            .emoji-big { font-size: 55px; }
+            .balloon { font-size: 40px; }
+            .btn-music { padding: 10px 20px; font-size: 14px; }
+            .heart { font-size: 18px; }
+        }
+
+        @media (max-width: 380px) {
+            h1 { font-size: 18px; }
+            .message { font-size: 14px; line-height: 1.9; }
+            .emoji-big { font-size: 45px; }
         }
     </style>
 </head>
@@ -154,7 +180,7 @@
     <span class="emoji-big">🎂</span>
     <h1>🎉 عيد ميلاد حبيبتي 🎉</h1>
     <div class="subtitle">💖 يا روحي 💖</div>
-    
+
     <div class="message">
         <i>❤️ كل عام وأنتي نور عيوني ❤️</i><br><br>
         اليوم يومج .. يوم الفرحة اللي ما تفارق وجهج 🌸<br>
@@ -179,7 +205,7 @@
     </div>
 
     <button class="btn-music" id="musicBtn">🎵 شغّل الموسيقى 🎵</button>
-    
+
     <div class="footer">
         ❤️ من قلب يحبك .. إلى أغلى إنسانة بحياتي ❤️
     </div>
@@ -187,28 +213,28 @@
 
 <script>
 // ==========================================
-// 1. توليد القلوب المتساقطة
+// 1. القلوب المتساقطة
 // ==========================================
 function createHearts() {
     const container = document.getElementById('heartRain');
     const emojis = ['❤️', '💖', '💗', '💓', '💕', '💘', '💝', '♥️', '💛', '🧡'];
     const colors = ['#ff6b9d', '#ff3366', '#ff1493', '#ff4d6d', '#ff8c9e', '#ffb3c6', '#ff69b4'];
-    
-    for (let i = 0; i < 100; i++) {
+
+    for (let i = 0; i < 120; i++) {
         const heart = document.createElement('div');
         heart.className = 'heart';
         heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
         heart.style.left = Math.random() * 100 + '%';
-        heart.style.fontSize = (Math.random() * 20 + 16) + 'px';
+        heart.style.fontSize = (Math.random() * 18 + 14) + 'px';
         heart.style.animationDuration = (Math.random() * 5 + 6) + 's';
-        heart.style.animationDelay = (Math.random() * 12) + 's';
+        heart.style.animationDelay = (Math.random() * 15) + 's';
         heart.style.color = colors[Math.floor(Math.random() * colors.length)];
         container.appendChild(heart);
     }
 }
 
 // ==========================================
-// 2. تشغيل الموسيقى (نغمات عيد ميلاد سعيد)
+// 2. الموسيقى
 // ==========================================
 let audioCtx = null;
 let isPlaying = false;
@@ -217,16 +243,16 @@ function playHappyBirthday() {
     if (audioCtx === null) {
         audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     }
-    
+
     if (isPlaying) {
         isPlaying = false;
         document.getElementById('musicBtn').textContent = '🎵 شغّل الموسيقى 🎵';
         return;
     }
-    
+
     isPlaying = true;
     document.getElementById('musicBtn').textContent = '⏹️ أوقف الموسيقى';
-    
+
     const notes = [
         { freq: 262, dur: 0.3 }, { freq: 262, dur: 0.3 },
         { freq: 294, dur: 0.5 }, { freq: 262, dur: 0.5 },
@@ -239,7 +265,7 @@ function playHappyBirthday() {
         { freq: 349, dur: 0.5 }, { freq: 330, dur: 0.5 },
         { freq: 294, dur: 0.6 }
     ];
-    
+
     let time = 0;
     for (let note of notes) {
         setTimeout(() => {
@@ -260,7 +286,25 @@ function playHappyBirthday() {
 }
 
 // ==========================================
-// 3. تحميل الصفحة
+// 3. تشغيل Fullscreen عند النقر
+// ==========================================
+function goFullscreen() {
+    const el = document.documentElement;
+    if (el.requestFullscreen) {
+        el.requestFullscreen();
+    } else if (el.webkitRequestFullscreen) {
+        el.webkitRequestFullscreen();
+    } else if (el.msRequestFullscreen) {
+        el.msRequestFullscreen();
+    }
+}
+
+// طلب Fullscreen عند أي تفاعل
+document.addEventListener('click', goFullscreen);
+document.addEventListener('touchstart', goFullscreen);
+
+// ==========================================
+// 4. تحميل الصفحة
 // ==========================================
 window.onload = function() {
     createHearts();
